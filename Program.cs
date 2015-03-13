@@ -1,9 +1,6 @@
 ﻿using System;
 using PeriodicTableScraper;
-using HtmlAgilityPack;
-using ScrapySharp.Core;
-using ScrapySharp.Html.Parsing;
-using ScrapySharp.Extensions;
+
 
 namespace PeriodicTableScraper
 {
@@ -11,15 +8,29 @@ namespace PeriodicTableScraper
 	{
 		public static void Main (string[] args)
 		{
-			GetData.GetCountries ();
 
+			// Create Database Connection
+			StoreResults.CreateConnection();
+
+			//Create Database. 
+			StoreResults.CreateDatabase();
+
+			//Create Table
+			StoreResults.CreateTable ();
+
+			// Scrape Los Alamos for elements 
+			GetData.GetElements();
+
+			//Iterate through elements and scrape each one. 
 			foreach (string address in GetData.countries) {
 
 				ScrapePeriodicTable.url = address;
-				Console.WriteLine (address);
+				Console.WriteLine(address);
 
 				ScrapePeriodicTable.ScrapeTables();
 				ScrapePeriodicTable.PrintResults();
+
+				StoreResults.AddRecord ();
 			}
 		}
 	}

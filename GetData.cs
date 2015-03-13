@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using HtmlAgilityPack;
 
 
+
 namespace PeriodicTableScraper
 {
 	public static class GetData
@@ -23,7 +24,7 @@ namespace PeriodicTableScraper
 
 		// Get Countries 
 
-		public static void GetCountries(){
+		public static void GetElements(){
 
 			HtmlDocument result = GetPage();
 

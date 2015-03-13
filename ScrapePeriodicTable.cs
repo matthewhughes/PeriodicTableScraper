@@ -41,8 +41,6 @@ namespace PeriodicTableScraper
 				BoilingPoint = node.SelectSingleNode("//table[@class='data']/tr[3]/td[4]").InnerText;
 				ElectronConfiguration = node.SelectSingleNode("//table[@class='data']/tr[4]/td[2]").InnerText;
 				OxidationStates = node.SelectSingleNode("//table[@class='data']/tr[4]/td[4]").InnerText;
-
-				// TODO: write desc somewhere
 			}
 		}
 
